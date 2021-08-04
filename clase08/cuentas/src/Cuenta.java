@@ -1,4 +1,4 @@
-public class Cuenta {
+public abstract class Cuenta {
     protected int numero;
     protected String cliente;
     protected float saldo;
@@ -28,15 +28,19 @@ public class Cuenta {
         return saldo;
     }
 
-    public void depositar(float importe) {
+    public final void depositar(float importe) {
         if (importe > 0)
             saldo += importe;
     }
 
-    public void extraer(float importe) {
+    public abstract void extraer(float importe);
 
+    @Override
+    public String toString() {
+        return "Cuenta{" +
+                "numero=" + numero +
+                ", cliente='" + cliente + '\'' +
+                ", saldo=" + saldo +
+                '}';
     }
-
-
-
 }

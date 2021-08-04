@@ -2,24 +2,19 @@ public class Programa {
 
     public static void main(String[] args) {
 
+        Banco b = new Banco();
         Cuenta c1 = new CajaAhorro(124,"Juan");
-        Cuenta c2 = new CuentaCorriente(124,"Juan", 5000);
-        Cuenta c3 = new Cuenta(124,"Juan");
+        Cuenta c2 = new CuentaCorriente(345,"Juan", 5000);
+        Cuenta c3 = new CajaAhorro(774,"Juan");
 
-        Cuenta []v = { c1, c2, c3 };
+        b.agregarCuenta(c1);
+        b.agregarCuenta(c2);
+        b.agregarCuenta(c3);
 
-        for(Cuenta c: v) {
-            // Funciona de formas diferentes: polimorfismo!
+        b.depositarATodas(500);
+        b.extraerDeTodas(1000);
+        System.out.println(b.listarSaldos());
 
-            realizarOperaciones(c); // Llamada polimórfica
-        }
-
-        for (Cuenta c: v)
-            System.out.println(c.getSaldo());
     }
 
-    public static void realizarOperaciones(Cuenta c) {
-        c.depositar(500);
-        c.extraer(1000);
-    }
 }

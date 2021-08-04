@@ -12,4 +12,11 @@ public class CuentaCorriente extends Cuenta {
         if (importe > 0 && importe <= (saldo + limite))
             saldo -= importe;
     }
+
+    @Override
+    public String toString() {
+        return "CuentaCorriente{" +
+                "limite=" + limite +
+                "} " + super.toString();
+    }
 }

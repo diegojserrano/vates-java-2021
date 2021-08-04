@@ -5,8 +5,13 @@ public class CajaAhorro extends Cuenta {
     }
 
     @Override
-    public void extraer(float importe) {
+    public final void extraer(float importe) {
         if (importe > 0 && importe <= saldo)
             saldo -= importe;
+    }
+
+    @Override
+    public String toString() {
+        return "CajaAhorro" + super.toString();
     }
 }
