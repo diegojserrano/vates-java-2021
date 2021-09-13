@@ -31,6 +31,7 @@ public class Menu {
         }
     }
 
+    //public void presentar(String[]textos, Runnable []codigos) {
     public void presentar(String[]textos, Opcion []codigos) {
 
         int salir =  textos.length+1;
@@ -44,6 +45,7 @@ public class Menu {
 
         while(opcion != salir) {
 
+            //codigos[opcion-1].run();
             codigos[opcion-1].ejecutar();
 
             for (int i = 0; i < textos.length; i++)

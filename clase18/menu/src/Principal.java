@@ -14,6 +14,7 @@ public class Principal {
 
         m.presentar(new String[]{"Bienvenida", "Despedida", "Mostrar numero al azar.."},
                 new Opcion[]{
+                //new Runnable[]{
                         () -> System.out.println("Hola desde la anonima"),
                         () -> System.out.println("Chau desde la anonima"),
                         () -> {
