@@ -7,6 +7,7 @@ import java.util.Random;
 
 @RestController
 @RequestMapping("/hola")
+@CrossOrigin
 public class HolaEndpoint {
 
     @GetMapping("")

@@ -59,4 +59,27 @@ public class NumerosEndpoint {
                 .toArray();
     }
 
+    @GetMapping("/todos")
+    public int[] todos() {
+        return GestorNumeros.getInstance().listar();
+    }
+
+    @PostMapping("/{num}")
+    public String agregar(@PathVariable int num) {
+        GestorNumeros.getInstance().agregar(num);
+        return "Agregado";
+    }
+
+    @DeleteMapping("/{num}")
+    public String borrar(@PathVariable int num) {
+        GestorNumeros.getInstance().eliminar(num);
+        return "Borrado";
+    }
+
+    @GetMapping("/{num}")
+    public boolean existe(@PathVariable int num) {
+        return GestorNumeros.getInstance().existe(num);
+    }
+
+
 }
