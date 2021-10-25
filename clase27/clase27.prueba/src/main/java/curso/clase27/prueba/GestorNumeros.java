@@ -1,20 +1,21 @@
 package curso.clase27.prueba;
 
+import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.ApplicationScope;
+
 import java.util.HashSet;
 
+@ApplicationScope
+@Service
 public class GestorNumeros {
-
-    private static GestorNumeros instancia;
-
-    public static GestorNumeros getInstance() {
-        if (instancia == null) instancia = new GestorNumeros();
-        return instancia;
-    }
 
     private HashSet<Integer> numeros;
 
-    private GestorNumeros() {
+    public GestorNumeros() {
         numeros = new HashSet<>();
+        numeros.add(2);
+        numeros.add(7);
+        numeros.add(28);
     }
 
     public void agregar(int x) {

@@ -1,22 +1,22 @@
 package curso.clase27.prueba;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.ApplicationScope;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
+@ApplicationScope
+@Service
 public class ListaPersonas {
 
-    private static ListaPersonas instancia;
-
-    public static ListaPersonas getInstance() {
-        if (instancia == null) instancia = new ListaPersonas();
-        return instancia;
-    }
-
-    private ListaPersonas() {
+    public ListaPersonas() {
         personas = new HashMap<>();
         personas.put(1, new Persona(1, "Juan", "Perez", 23));
-        personas.put(2, new Persona(2, "Juana", "Perez", 23));
+        personas.put(3, new Persona(3, "Ju", "Pereza", 23));
     }
 
     private HashMap<Integer, Persona> personas;

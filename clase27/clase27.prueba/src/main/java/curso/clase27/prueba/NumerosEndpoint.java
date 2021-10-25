@@ -1,5 +1,6 @@
 package curso.clase27.prueba;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Random;
@@ -7,7 +8,6 @@ import java.util.Random;
 @RestController
 @RequestMapping("/numeros")
 public class NumerosEndpoint {
-
 
     // parametros para  indicar minimo y maximo.
     @GetMapping("/uno-al-azar")
@@ -32,8 +32,6 @@ public class NumerosEndpoint {
         }
         return new Random().nextInt(maximo-minimo) + minimo;
     }
-
-
 
     @GetMapping("/muchos-al-azar")
     public int[] numeros(
@@ -60,26 +58,25 @@ public class NumerosEndpoint {
     }
 
     @GetMapping("/todos")
-    public int[] todos() {
-        return GestorNumeros.getInstance().listar();
+    public int[] todos(@Autowired GestorNumeros gn) {
+        return gn.listar();
     }
 
     @PostMapping("/{num}")
-    public String agregar(@PathVariable int num) {
-        GestorNumeros.getInstance().agregar(num);
+    public String agregar(@Autowired GestorNumeros gn, @PathVariable int num) {
+        gn.agregar(num);
         return "Agregado";
     }
 
     @DeleteMapping("/{num}")
-    public String borrar(@PathVariable int num) {
-        GestorNumeros.getInstance().eliminar(num);
+    public String borrar(@Autowired GestorNumeros gn,@PathVariable int num) {
+        gn.eliminar(num);
         return "Borrado";
     }
 
     @GetMapping("/{num}")
-    public boolean existe(@PathVariable int num) {
-        return GestorNumeros.getInstance().existe(num);
+    public boolean existe(@Autowired GestorNumeros gn, @PathVariable int num) {
+        return gn.existe(num);
     }
-
 
 }
