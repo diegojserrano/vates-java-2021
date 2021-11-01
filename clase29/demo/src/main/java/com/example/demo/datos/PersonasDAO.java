@@ -1,5 +1,6 @@
-package com.example.demo;
+package com.example.demo.datos;
 
+import com.example.demo.entidades.Persona;
 import org.springframework.stereotype.Repository;
 
 import org.springframework.web.context.annotation.ApplicationScope;
