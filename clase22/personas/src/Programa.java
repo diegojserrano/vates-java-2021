@@ -17,13 +17,13 @@ public class Programa {
 
         //Persona p = em.find(Persona.class, 111111);
         //System.out.println(p);
-        //EntityTransaction t = em.getTransaction();
-        //t.begin();
-        //Persona nueva = new Persona(111111, "Juan", "Perez",10);
-        //em.merge(nueva);
-        //em.flush();
+        EntityTransaction t = em.getTransaction();
+        t.begin();
+        Persona nueva = new Persona(111111, "Juan", "Perez",10);
+        em.merge(nueva);
+        em.flush();
 
-        //t.commit();
+        t.commit();
 
         //;
         //List<Persona> lista =
